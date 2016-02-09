@@ -1,1 +1,1 @@
-include ':app', ':presenterfragment'
+include ':app', ':presenter-fragment', ':presenter-fragment-tests'

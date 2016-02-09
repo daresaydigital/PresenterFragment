@@ -1,4 +1,4 @@
-package com.screeninteraction.presenterfragment;
+package com.screeninteraction.fragmentpresetntertests;
 
 public class TestUtils {
 

@@ -1,4 +1,4 @@
-package com.screeninteraction.presenterfragment;
+package com.screeninteraction.fragmentpresetntertests;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
