@@ -5,11 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class Presenter<V extends View> {
+public abstract class Presenter<F extends PresenterFragment, V extends View> {
 
     private V view;
 
-    private PresenterFragment fragment;
+    private F fragment;
+
+    public F getFragment(){
+        return fragment;
+    }
 
     public abstract V onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
@@ -20,6 +24,7 @@ public abstract class Presenter<V extends View> {
     public V getPresenterView(){
         return view;
     }
+
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -49,17 +54,11 @@ public abstract class Presenter<V extends View> {
 
     }
 
-    public void onAttach(PresenterFragment fragment){
+    public void onAttach(F fragment){
         this.fragment = fragment;
     }
 
     public void onDetach(){
         this.fragment = null;
     }
-
-    public PresenterFragment getFragment() {
-        return fragment;
-    }
-
-
 }

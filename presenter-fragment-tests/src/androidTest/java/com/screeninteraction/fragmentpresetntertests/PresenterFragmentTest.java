@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import static org.mockito.Matchers.any;
+
 public class PresenterFragmentTest extends ActivityInstrumentationTestCase2<TestActivity> {
 
     public PresenterFragmentTest(){
@@ -31,11 +33,11 @@ public class PresenterFragmentTest extends ActivityInstrumentationTestCase2<Test
         getActivity();
         getInstrumentation().waitForIdleSync();
 
-        inOrder.verify(TestUtils.presenter).onAttach(Matchers.any(PresenterFragment.class));
-        inOrder.verify(TestUtils.presenter).onCreate(Matchers.any(Bundle.class));
-        inOrder.verify(TestUtils.presenter).onCreateView(Matchers.any(LayoutInflater.class), Matchers.any(ViewGroup.class), Matchers
+        inOrder.verify(TestUtils.presenter).onAttach(any(PresenterFragment.class));
+        inOrder.verify(TestUtils.presenter).onCreate(any(Bundle.class));
+        inOrder.verify(TestUtils.presenter).onCreateView(any(LayoutInflater.class), any(ViewGroup.class), Matchers
                 .isNull(Bundle.class));
-        inOrder.verify(TestUtils.presenter).onViewCreated(Matchers.any(View.class), Matchers.any(Bundle.class));
+        inOrder.verify(TestUtils.presenter).onViewCreated(any(View.class), any(Bundle.class));
         inOrder.verify(TestUtils.presenter).onStart();
         inOrder.verify(TestUtils.presenter).onResume();
     }

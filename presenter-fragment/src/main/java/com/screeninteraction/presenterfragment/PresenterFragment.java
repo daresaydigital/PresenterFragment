@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 public class PresenterFragment<T extends Presenter> extends Fragment {
 
-    // Must be set before or in onAttach().
     private T presenter;
 
     public void setPresenter(T presenter) {

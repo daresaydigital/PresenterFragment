@@ -2,12 +2,11 @@ package com.screeninteraction.presenterfragment.sample;
 
 import com.screeninteraction.presenterfragment.Presenter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-public class MyPresenter extends Presenter<MyView> {
+public class MyPresenter extends Presenter<MyPresenterFragment, MyView> {
 
     @Override
     public void onResume() {
@@ -26,11 +25,7 @@ public class MyPresenter extends Presenter<MyView> {
         getPresenterView().setText("Bye world");
     }
 
-    public void doFragmentStuff() {
-        getFragment().startActivity(new Intent("test.package"));
-    }
-
-    public void doActivityStuff() {
-        getFragment().getActivity().deleteFile("test.file");
+    public void doSomethingFragmentRelated() {
+        getFragment().somethingFragmentRelated();
     }
 }

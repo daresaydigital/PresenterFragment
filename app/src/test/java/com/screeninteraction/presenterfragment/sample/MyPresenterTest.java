@@ -1,20 +1,12 @@
 package com.screeninteraction.presenterfragment.sample;
 
-import com.screeninteraction.presenterfragment.PresenterFragment;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import android.app.Activity;
-import android.content.Intent;
-
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 
 public class MyPresenterTest {
@@ -25,17 +17,11 @@ public class MyPresenterTest {
     MyView view;
 
     @Mock
-    PresenterFragment fragment;
-
-    @Mock
-    Activity activity;
+    MyPresenterFragment fragment;
 
     @Before
     public void setup(){
         MockitoAnnotations.initMocks(this);
-
-        when(fragment.getActivity()).thenReturn(activity);
-        when(fragment.getContext()).thenReturn(activity);
 
         presenter = spy(new MyPresenter());
         presenter.onAttach(fragment);
@@ -55,15 +41,9 @@ public class MyPresenterTest {
     }
 
     @Test
-    public void testFragmentStuff(){
-        presenter.doFragmentStuff();
-        verify(fragment).startActivity(any(Intent.class));
-    }
-
-    @Test
-    public void testActivityStuff(){
-        presenter.doActivityStuff();
-        verify(activity).deleteFile(eq("test.file"));
+    public void testDoSomethingFragmentRelated(){
+        presenter.doSomethingFragmentRelated();
+        verify(fragment).somethingFragmentRelated();
     }
 
 }
