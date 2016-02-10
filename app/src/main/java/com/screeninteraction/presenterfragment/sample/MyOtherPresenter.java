@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MyPresenter extends Presenter<MyPresenterFragment, MyView> {
+public class MyOtherPresenter extends Presenter<MyOtherPresenterFragment, MyView> {
+
+
 
     @Override
     public MyView onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -17,11 +19,11 @@ public class MyPresenter extends Presenter<MyPresenterFragment, MyView> {
     @Override
     public void onViewCreated(MyView view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getPresenterView().setButtonText("Start other fragment!");
+        getPresenterView().setButtonText("Go back");
         getPresenterView().setButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragment().showMyOtherFragment();
+                getFragment().goBack();
             }
         });
     }
@@ -29,17 +31,13 @@ public class MyPresenter extends Presenter<MyPresenterFragment, MyView> {
     @Override
     public void onResume() {
         super.onResume();
-        getPresenterView().setText("Hello world");
+        getPresenterView().setText("This is an other fragment!");
     }
-
 
     @Override
     public void onPause() {
         super.onPause();
-        getPresenterView().setText("Bye world");
+        getPresenterView().setText("Bye bye");
     }
 
-    public void doSomethingFragmentRelated() {
-        getFragment().showMyOtherFragment();
-    }
 }

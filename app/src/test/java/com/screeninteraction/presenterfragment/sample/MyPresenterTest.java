@@ -43,7 +43,7 @@ public class MyPresenterTest {
     @Test
     public void testDoSomethingFragmentRelated(){
         presenter.doSomethingFragmentRelated();
-        verify(fragment).somethingFragmentRelated();
+        verify(fragment).showMyOtherFragment();
     }
 
 }

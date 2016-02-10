@@ -8,7 +8,11 @@ public class MyPresenterFragment extends PresenterFragment<MyPresenter> {
         setPresenter(new MyPresenter());
     }
 
-    public void somethingFragmentRelated() {
-        getActivity().setTitle("A new title");
+    public void showMyOtherFragment() {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_activity_container, new MyOtherPresenterFragment())
+                .addToBackStack(null)
+                .commit();
     }
 }
