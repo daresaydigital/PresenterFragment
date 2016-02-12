@@ -14,17 +14,17 @@ public class MyPresenterTest {
     private MyPresenter presenter;
 
     @Mock
-    MyView view;
+    IMyView view;
 
     @Mock
-    MyPresenterFragment fragment;
+    IMyParent parent;
 
     @Before
     public void setup(){
         MockitoAnnotations.initMocks(this);
 
         presenter = spy(new MyPresenter());
-        presenter.onAttach(fragment);
+        presenter.onAttach(parent);
         presenter.onViewCreated(view, null);
     }
 
@@ -41,9 +41,9 @@ public class MyPresenterTest {
     }
 
     @Test
-    public void testDoSomethingFragmentRelated(){
-        presenter.doSomethingFragmentRelated();
-        verify(fragment).showMyOtherFragment();
+    public void testShowMyOtherPresenter(){
+        presenter.showMyOtherPresenter();
+        verify(parent).showMyOtherPresenter();
     }
 
 }

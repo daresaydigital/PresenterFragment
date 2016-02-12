@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class MyView extends FrameLayout {
+public class MyView extends FrameLayout implements IMyView {
 
     public MyView(Context context) {
         this(context, null, 0);

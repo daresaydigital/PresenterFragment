@@ -3,18 +3,12 @@ package com.screeninteraction.presenterfragment.sample;
 import com.screeninteraction.presenterfragment.Presenter;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+/**
+ * Example on how parent and view can be more specific.
+ */
 public class MyOtherPresenter extends Presenter<MyOtherPresenterFragment, MyView> {
-
-
-
-    @Override
-    public MyView onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return (MyView) inflater.inflate(R.layout.my_view, container, false);
-    }
 
     @Override
     public void onViewCreated(MyView view, Bundle savedInstanceState) {
@@ -23,7 +17,7 @@ public class MyOtherPresenter extends Presenter<MyOtherPresenterFragment, MyView
         getPresenterView().setButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragment().goBack();
+                getParent().goBack();
             }
         });
     }
@@ -31,7 +25,7 @@ public class MyOtherPresenter extends Presenter<MyOtherPresenterFragment, MyView
     @Override
     public void onResume() {
         super.onResume();
-        getPresenterView().setText("This is an other fragment!");
+        getPresenterView().setText("This my other presenter!");
     }
 
     @Override

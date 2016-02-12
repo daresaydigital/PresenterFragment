@@ -3,15 +3,12 @@ package com.screeninteraction.fragmentpresetntertests;
 import com.screeninteraction.presenterfragment.PresenterFragment;
 
 import org.mockito.InOrder;
-import org.mockito.Matchers;
 import org.mockito.Mockito;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.test.ActivityInstrumentationTestCase2;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import static org.mockito.Matchers.any;
 
@@ -35,8 +32,6 @@ public class PresenterFragmentTest extends ActivityInstrumentationTestCase2<Test
 
         inOrder.verify(TestUtils.presenter).onAttach(any(PresenterFragment.class));
         inOrder.verify(TestUtils.presenter).onCreate(any(Bundle.class));
-        inOrder.verify(TestUtils.presenter).onCreateView(any(LayoutInflater.class), any(ViewGroup.class), Matchers
-                .isNull(Bundle.class));
         inOrder.verify(TestUtils.presenter).onViewCreated(any(View.class), any(Bundle.class));
         inOrder.verify(TestUtils.presenter).onStart();
         inOrder.verify(TestUtils.presenter).onResume();
@@ -55,6 +50,4 @@ public class PresenterFragmentTest extends ActivityInstrumentationTestCase2<Test
         inOrder.verify(TestUtils.presenter).onDestroy();
         inOrder.verify(TestUtils.presenter).onDetach();
     }
-
-
 }

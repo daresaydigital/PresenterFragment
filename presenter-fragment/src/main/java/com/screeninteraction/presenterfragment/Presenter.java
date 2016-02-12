@@ -1,21 +1,21 @@
 package com.screeninteraction.presenterfragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-public abstract class Presenter<F extends PresenterFragment, V extends View> {
+/**
+ *
+ * @param <P> a parent, typically a Fragment or an Activity. Something attached to lifecycle.
+ * @param <V> a view.
+ */
+public abstract class Presenter<P extends Object, V extends Object> {
 
     private V view;
 
-    private F fragment;
+    private P parent;
 
-    public F getFragment(){
-        return fragment;
+    public P getParent(){
+        return parent;
     }
-
-    public abstract V onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     public void onViewCreated(V view, Bundle savedInstanceState) {
         this.view = view;
@@ -24,7 +24,6 @@ public abstract class Presenter<F extends PresenterFragment, V extends View> {
     public V getPresenterView(){
         return view;
     }
-
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -54,11 +53,11 @@ public abstract class Presenter<F extends PresenterFragment, V extends View> {
 
     }
 
-    public void onAttach(F fragment){
-        this.fragment = fragment;
+    public void onAttach(P parent){
+        this.parent = parent;
     }
 
     public void onDetach(){
-        this.fragment = null;
+        this.parent = null;
     }
 }
