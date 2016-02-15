@@ -1,2 +1,2 @@
 # PresenterFragment
-Simple view presenter bound to the lifecycle of a Fragment.
+Simple view presenter hooked up to the lifecycle of a Fragment.
