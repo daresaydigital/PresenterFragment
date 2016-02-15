@@ -4,24 +4,24 @@ import android.os.Bundle;
 
 /**
  *
- * @param <P> a parent, typically a Fragment or an Activity. Something attached to lifecycle.
- * @param <V> a view.
+ * @param <Parent> typically a Fragment or an Activity. Something attached to lifecycle.
+ * @param <View> a view.
  */
-public abstract class Presenter<P extends Object, V extends Object> {
+public abstract class Presenter<Parent, View> {
 
-    private V view;
+    private View view;
 
-    private P parent;
+    private Parent parent;
 
-    public P getParent(){
+    public Parent getParent(){
         return parent;
     }
 
-    public void onViewCreated(V view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         this.view = view;
     }
 
-    public V getPresenterView(){
+    public View getPresenterView(){
         return view;
     }
 
@@ -53,7 +53,7 @@ public abstract class Presenter<P extends Object, V extends Object> {
 
     }
 
-    public void onAttach(P parent){
+    public void onAttach(Parent parent){
         this.parent = parent;
     }
 
